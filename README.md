@@ -28,8 +28,10 @@ Setup is easy, all you need is a Google Account and follow the link to Google Co
 #### Hello World
 This link allows you to view a hello world example. If you want to edit it you can click on "OPEN IN PLAYGROUND" or save a copy to you Google Drive.
 
-Colab Notebookhttps://colab.research.google.com/drive/1S0O_NkZ9Z-tlYzGLDJuRi3Qd4mQQQQIR
-
+https://colab.research.google.com/drive/1S0O_NkZ9Z-tlYzGLDJuRi3Qd4mQQQQIR
+```
+print("hello world")
+```
 ## Learn Python
 
 #### Learning resources
@@ -43,7 +45,6 @@ programming languages like Node, C, C++
 1. http://ipython.readthedocs.io/en/stable/interactive/magics.html
 
 https://colab.research.google.com/drive/12MUJ1bfxf0vNW9GCh6-tchKc3BMWzhkN
-
 ```
 import subprocess
 import IPython.core.magic as ipy
