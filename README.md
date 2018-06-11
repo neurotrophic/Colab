@@ -45,11 +45,11 @@ Links
 
 #### Write a IPython Magic class from scratch
 The goal of this project is to learn how IPython Magic works and add the ablity to run and display the output of other
-programming languages like Node, C, C++
+programming languages like Javascript, C, C++
 
-- [x] Execute code python inside cell with Python
-- [x] Execute code c++ inside cell with Gcc
-- [x] Execute code javascript inside cell with Node
+- [x] Execute Python code inside cell with Python
+- [x] Execute C++ code inside cell with Gcc
+- [x] Execute Javascript code inside cell with Node
 
 Links
 * http://ipython.readthedocs.io/en/stable/interactive/magics.html
@@ -93,8 +93,9 @@ The goal of this project is to learn how Google Auth and Google Drive API works 
 - [x] Change current folder
 - [x] Push local file into current drive folder
 - [x] Pull drive file from current folder 
-- [ ] Use Cowboy_Magic to save cell to local drive and use Cowboy_Drive to upload file to Google Drive
-- [ ] Use Cowboy_Drive to download file and import  
+- [x] Use Cowboy_Magic to save cell to local drive
+- [x] Use Cowboy_Drive to upload file to Google Drive
+- [x] Use Cowboy_Drive to download file and import  
 
 Links
 * https://developers.google.com/api-client-library/python/
@@ -118,11 +119,8 @@ class Cowboy_Drive:
   folderType = 'application/vnd.google-apps.folder'
   
   def __init__(self):
-    credentials, project = google.auth.default()
-    drive = build('drive', 'v3', credentials=credentials)  
     self.files = drive.files()
     self.folder_id = 'root'
-    self.dir(True)
   
   def query(self,q):
     fields = 'files(name, id, mimeType)'
@@ -138,25 +136,23 @@ class Cowboy_Drive:
           return item
     return None
         
-  def dir(self,refresh=False):
+  def dir(self):
     q = "'{}' in parents and trashed=false".format(self.folder_id)
-    if refresh: self.list = self.query(q)
+    self.list = self.query(q)
+    return self.list
   
   def chdir(self,name):
-    if name != 'root': 
+    if name != 'root':
       out = self.exists(name,self.folderType)
       if not out is None:
           self.folder_id = out['id']
     else:
       self.folder_id = 'root'
-    self.dir(True)
-  
+
   def mkdir(self,name):
-    out = self.exists(name,self.folderType)
-    if out is None:
-      body = {'name': name,'mimeType': self.folderType,'parents': [self.folder_id]}
-      file = self.files.create(body=body,fields='id,parents').execute()
-      self.folder_id = file.get('id')
+    body = {'name': name,'mimeType': self.folderType,'parents': [self.folder_id]}
+    file = self.files.create(body=body,fields='id,parents').execute()
+#     self.folder_id = file.get('id')
         
   def push(self,name):
     body = {'name': name,'parents': [self.folder_id]}
@@ -173,3 +169,5 @@ class Cowboy_Drive:
     while done is False:
       status, done = downloader.next_chunk()
 ```
+Example
+* https://colab.research.google.com/drive/1UQW1izGUmZWi7aeioULJMYz1fcznokcX
