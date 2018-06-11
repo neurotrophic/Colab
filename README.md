@@ -53,7 +53,6 @@ programming languages like Node, C, C++
 
 Links
 * http://ipython.readthedocs.io/en/stable/interactive/magics.html
-* https://colab.research.google.com/drive/12MUJ1bfxf0vNW9GCh6-tchKc3BMWzhkN
 
 ```
 import subprocess
@@ -81,6 +80,10 @@ class Cowboy_Magic(ipy.Magics):
 
 get_ipython().register_magics(Cowboy_Magic)
 ```
+
+Examples
+* https://colab.research.google.com/drive/12MUJ1bfxf0vNW9GCh6-tchKc3BMWzhkN
+
 #### Write a Python Class that accesses Google Drive
 The goal of this project is to learn how Google Auth and Google Drive API works adding the ability to access Google Drive like a local drive inside a Colab Notebook. The primary reason for this functionality is to provide the ability to import libraries directly from Google Drive into separate Google Notebooks
 
@@ -90,6 +93,8 @@ The goal of this project is to learn how Google Auth and Google Drive API works 
 - [x] Change current folder
 - [x] Push local file into current drive folder
 - [x] Pull drive file from current folder 
+- [ ] Use Cowboy_Magic to save cell to local drive and use Cowboy_Drive to upload file to Google Drive
+- [ ] Use Cowboy_Drive to download file and import  
 
 Links
 * https://developers.google.com/api-client-library/python/
@@ -97,6 +102,8 @@ Links
 * https://github.com/google/oauth2client (deprecated)
 * https://google-auth.readthedocs.io/en/latest/
 * https://github.com/googlecolab/colabtools
+* https://developers.google.com/drive/api/v3/about-sdk
+* https://www.youtube.com/watch?v=-7YH6rdR-tk
 
 ```
 from google.colab import auth
