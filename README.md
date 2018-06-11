@@ -92,10 +92,10 @@ The goal of this project is to learn how Google Auth and Google Drive API works 
 - [x] Make new folder
 - [x] Change current folder
 - [x] Push local file into current drive folder
-- [x] Pull drive file from current folder 
+- [x] Pull drive file from current drive folder into local drive
 - [x] Use Cowboy_Magic to save cell to local drive
 - [x] Use Cowboy_Drive to upload file to Google Drive
-- [x] Use Cowboy_Drive to download file and import  
+- [x] Use Cowboy_Drive to download file from Google Drive and import locally
 
 Links
 * https://developers.google.com/api-client-library/python/
@@ -152,7 +152,6 @@ class Cowboy_Drive:
   def mkdir(self,name):
     body = {'name': name,'mimeType': self.folderType,'parents': [self.folder_id]}
     file = self.files.create(body=body,fields='id,parents').execute()
-#     self.folder_id = file.get('id')
         
   def push(self,name):
     body = {'name': name,'parents': [self.folder_id]}
