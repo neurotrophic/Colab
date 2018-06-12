@@ -170,3 +170,14 @@ class Cowboy_Drive:
 ```
 Example
 * https://colab.research.google.com/drive/1UQW1izGUmZWi7aeioULJMYz1fcznokcX
+
+## Learn Machine Learning
+
+Links
+* http://karpathy.github.io/neuralnets/
+* http://cs231n.github.io/
+
+## Learn Tensorflow
+
+Links
+
