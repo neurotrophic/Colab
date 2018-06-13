@@ -54,7 +54,7 @@ programming languages like Javascript, C, C++
 Links
 * http://ipython.readthedocs.io/en/stable/interactive/magics.html
 
-```
+```python
 import subprocess
 import IPython.core.magic as ipy
 from IPython import get_ipython
@@ -106,7 +106,7 @@ Links
 * https://developers.google.com/drive/api/v3/about-sdk
 * https://www.youtube.com/watch?v=-7YH6rdR-tk
 
-```
+```python
 from google.colab import auth
 auth.authenticate_user()
 
